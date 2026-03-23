@@ -18,24 +18,23 @@ html {
   color: var(--ink);
 }
 
-body {
+body.site-body {
   min-height: 100vh;
   margin: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
   font-family: "Newsreader", Georgia, serif;
   text-rendering: optimizeLegibility;
 }
 
-.page {
+main {
   width: min(100%, 72rem);
-  margin: 0 auto;
-  padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 6vw, 5rem)
-    clamp(4rem, 10vw, 8rem);
 }
 
 .masthead {
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 3rem;
 }
 
 h1,
@@ -79,16 +78,8 @@ h1 {
 }
 
 @media (max-width: 720px) {
-  body {
-    display: block;
-  }
-
-  .page {
-    padding-top: 2.4rem;
-  }
-
-  .masthead {
-    margin-bottom: 1.75rem;
+  body.site-body {
+    padding: 3rem 1rem;
   }
 
   .essay p {
