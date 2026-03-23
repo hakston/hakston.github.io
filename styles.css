@@ -21,6 +21,8 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  display: grid;
+  place-items: center;
   font-family: "Newsreader", Georgia, serif;
   text-rendering: optimizeLegibility;
 }
@@ -61,7 +63,7 @@ h1 {
 }
 
 .essay p + p {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .sr-only {
@@ -77,6 +79,10 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  body {
+    display: block;
+  }
+
   .page {
     padding-top: 2.4rem;
   }
