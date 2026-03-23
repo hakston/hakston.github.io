@@ -5,6 +5,7 @@
   --line: rgba(23, 21, 19, 0.12);
   --accent: #2f6b4b;
   --page: 46rem;
+  --measure: 34rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,18 +24,27 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, color-mix(in srgb, var(--accent) 12%, transparent), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 20%),
-    var(--bg);
   color: var(--ink);
+  background: var(--bg);
   font: 400 1rem/1.85 Inter, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--accent) 12%, transparent), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 18%);
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -64,20 +74,18 @@ p {
 }
 
 .page {
+  position: relative;
   width: min(calc(100% - 2rem), var(--page));
   margin: 0 auto;
   padding: clamp(4rem, 10vw, 7rem) 0 2rem;
 }
 
-.masthead,
-.essay,
-.notes,
-.colophon {
-  max-width: 100%;
+.page > * + * {
+  margin-top: clamp(2rem, 4vw, 3.25rem);
 }
 
 .masthead {
-  margin-bottom: clamp(3rem, 8vw, 5.5rem);
+  margin-top: 0;
 }
 
 .nameplate,
@@ -97,21 +105,17 @@ h1 {
   line-height: 0.94;
 }
 
+.subtitle,
+.essay,
+.notes {
+  max-width: var(--measure);
+}
+
 .subtitle {
-  max-width: 23rem;
   margin-top: 1rem;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.7;
-}
-
-.essay,
-.notes {
-  max-width: 34rem;
-}
-
-.essay {
-  margin-bottom: 2.75rem;
 }
 
 h2 {
@@ -125,15 +129,14 @@ h2 {
   margin-top: 1rem;
 }
 
-.notes {
-  padding-top: 1.25rem;
+.notes,
+.colophon {
+  padding-top: 1.1rem;
   border-top: 1px solid var(--line);
 }
 
 .colophon {
-  margin-top: 4rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--line);
+  margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
 @media (max-width: 40rem) {
@@ -147,8 +150,8 @@ h2 {
     padding-top: 3rem;
   }
 
-  .masthead {
-    margin-bottom: 2.5rem;
+  .page > * + * {
+    margin-top: 1.9rem;
   }
 
   .subtitle,
