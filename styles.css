@@ -33,7 +33,7 @@ body {
 }
 
 .masthead {
-  margin-bottom: clamp(4rem, 10vw, 7rem);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
 h1,
@@ -82,7 +82,7 @@ h1 {
   }
 
   .masthead {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.75rem;
   }
 
   .essay p {
